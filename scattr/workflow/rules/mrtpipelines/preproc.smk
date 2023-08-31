@@ -16,7 +16,7 @@ rule nii2mif:
             else re.sub(".nii.gz", ".bvec", inputs["dwi"].path)
         ),
         mask=(
-            bids_dwi(suffix="mask.nii.gz") if dwi_dir else inputs["mask"].path
+            bids_dwi_mask(suffix="mask.nii.gz") if dwi_dir else inputs["mask"].path
         ),
     output:
         dwi=bids(

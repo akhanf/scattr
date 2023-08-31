@@ -24,9 +24,21 @@ bids_dwi = partial(
     root=dwi_dir,
     datatype="dwi",
     space="T1w",
-    desc="preproc",
+    desc="eddy",
+    res="orig",
     **inputs.subj_wildcards,
 )
+
+bids_dwi_mask = partial(
+    bids,
+    root=dwi_dir,
+    datatype="dwi",
+    space="T1w",
+    desc="brain",
+    res="orig",
+    **inputs.subj_wildcards,
+)
+
 
 bids_response_out = partial(
     bids,
